@@ -10,6 +10,7 @@
     },
     "rules": {
     "comma-dangle": ["error", "never"],
+    "max-len": ["off"],
     "no-unused-vars": ["error", {"vars": "local", "args": "none"}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }

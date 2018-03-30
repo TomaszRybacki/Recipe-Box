@@ -1,27 +1,38 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/app.js",
+  entry: './src/app.js',
   output: {
-    path: path.join(__dirname, "public"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'public'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [{
-      loader: "babel-loader",
+      loader: 'babel-loader',
       test: /\.js$/,
       exclude: /node_modules/
     }, {
       test: /\.s?css$/,
       use: [
-        "style-loader",
-        "css-loader",
-        "sass-loader"
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
+    }, {
+      test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: 'img/[name].[ext]'
+          }
+        }
       ]
     }]
   },
-  devtool: "cheap-module-eval-source-map",
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "public")
+    contentBase: path.join(__dirname, 'public')
   }
 };
+

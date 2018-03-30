@@ -1,8 +1,7 @@
-# Recipe-Box
+# Pizza
 
-List of your custom recipes. Where you can create recipes that have names and ingredients. You can add, edit and delete these recipes.
-
-All new recipes are saved in my browser's local storage. If I refresh the page, these recipes will still be there.
+You can add, edit and delete recipes of your's favorite pizzas.
+All new recipes are saved in your browser's local storage.
 
 ## Free Code Camp challenge
 
