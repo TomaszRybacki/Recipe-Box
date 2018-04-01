@@ -1,5 +1,18 @@
 /********** This CSS is written in SASS in BEM methodology **********/
 
+body {
+  background-color: rgb(26, 36, 45);
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+
+  background-image: url(../img/pizza.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /* VARIABLES ************************************************************************ */
 
 @import "variables";
@@ -16,6 +29,6 @@
 
 @import "../components/Header";
 
-/* MAIN ***************************************************************************** */
+/* MENU ***************************************************************************** */
 
-@import "../components/Main";
+@import "../components/Menu";

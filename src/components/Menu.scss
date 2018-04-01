@@ -1,0 +1,31 @@
+.menu-box {
+  background-color: $black;
+  max-width:  800px;
+  margin: 50px auto 0 auto;
+}
+
+.accordion__item {
+  margin: 0 auto;
+}
+
+.accordion__title {
+  background-color: $yellow;
+  font: $large $basic;
+  font-weight: 800;
+  color: $black;
+  padding: 10px;
+  cursor: pointer;
+  border: solid 2px $yellow;
+}
+
+.accordion__body {
+  font: $medium $basic;
+  font-weight: 600;
+  color: $olive;
+  padding: 10px;
+  border: solid 2px $yellow;
+}
+
+.accordion__ingredient {
+
+}

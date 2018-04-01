@@ -1,25 +1,20 @@
 import React from 'react';
 import Header from './Header';
-import Main from './Main';
+import Menu from './Menu';
 
 
 const appStyle = {
-  width: '100%',
-  height: '100vh',
 
-  backgroundImage: 'url(../img/pizza.jpg)',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
 };
 
 
 class RecipeBox extends React.Component {
   render() {
     return (
-      <div style={appStyle}>
+      <React.Fragment>
         <Header />
-        <Main />
-      </div>
+        <Menu />
+      </React.Fragment>
     );
   }
 }
