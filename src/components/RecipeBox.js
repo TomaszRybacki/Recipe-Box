@@ -1,11 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Menu from './Menu';
-
-
-const appStyle = {
-
-};
+import Footer from './Footer';
 
 
 class RecipeBox extends React.Component {
@@ -14,6 +10,7 @@ class RecipeBox extends React.Component {
       <React.Fragment>
         <Header />
         <Menu />
+        <Footer />
       </React.Fragment>
     );
   }

@@ -35,3 +35,36 @@
 .logo-icon g path {
     fill: $yellow;
 }
+
+.header__button {
+  background-color: $orange;
+  border: solid 2px $orange;
+  font: $medium $basic;
+  font-weight: 600;
+  color: $black;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  margin: 10px;
+  text-transform: uppercase;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    border: $black solid 4px;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+  }
+
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    opacity: 1;
+  }
+}

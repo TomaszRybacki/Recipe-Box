@@ -32,3 +32,9 @@ height: 1px;
 width: 1px;
 word-wrap: normal;
 }
+
+button {
+  &:focus {
+    outline: none;
+  }
+}

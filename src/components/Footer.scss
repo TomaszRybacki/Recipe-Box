@@ -1,0 +1,14 @@
+.footer {
+  background-color: $black;
+  width: 800px;
+  height: 20px;
+  margin: 40px auto 0 auto;
+  padding: 20px;
+}
+
+.footer__txt {
+  font: $small $basic;
+  color: $yellow;
+  text-align: center;
+  font-weight: 600;
+}

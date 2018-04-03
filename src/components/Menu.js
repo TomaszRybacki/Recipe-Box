@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactSVG from 'react-svg';
 
 const pizzaMenu = {
   Hawaiian: ['red sauce', 'cheese', 'ham', 'pineapple'],
@@ -10,7 +11,19 @@ const pizzaList = () => (
   <React.Fragment>
     {Object.keys(pizzaMenu).map((pizza, index) => (
       <div className="accordion__item" key={`div ${pizza}`}>
-        <h3 className="accordion__title" key={`h3 ${pizza}`}>{pizza}</h3>
+        <div className="accordion__header">
+
+          <span className="accordion__header-layout justify-start">
+            <ReactSVG path="../img/pizza-piece.svg" className="menu-icon" />
+            <h3 className="accordion__title" key={`h3 ${pizza}`}>{pizza}</h3>
+          </span>
+
+          <span className="accordion__header-layout justify-end">
+            <button className="accordion__button">Edit</button>
+            <button className="accordion__button">Delete</button>
+          </span>
+
+        </div>
         <ul className="accordion__body" key={`ul ${pizza}`}>
 
           {Object.values(pizzaMenu)[index].map(ingredient => (
