@@ -17,6 +17,10 @@ class Header extends React.Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
+  handlePizzaAdd() {
+    console.log('test');
+  }
+
   render() {
     const { showModal } = this.state;
 
@@ -34,6 +38,7 @@ class Header extends React.Component {
           <input className="modal-input" type="text" placeholder="enter pizza name" />
           <p className="modal-txt">Ingredients</p>
           <input className="modal-input" type="text" placeholder="enter all ingredients separated by a comma" />
+          <button onClick={() => this.handlePizzaAdd()}>Add</button>
         </Modal>}
       </header>
     );
