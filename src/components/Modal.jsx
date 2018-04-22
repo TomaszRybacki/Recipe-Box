@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class Modal extends React.Component {
 
     return (
       <div className="modal-box">
-       <button className="modal-button" onClick={onCloseRequest}>&#10006;</button>
+        <button className="modal-button" onClick={onCloseRequest}>&#10006;</button>
         <div className="modal-content">
           {children}
         </div>
@@ -49,5 +50,11 @@ class Modal extends React.Component {
     );
   }
 }
+
+Modal.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  onCloseRequest: PropTypes.func.isRequired
+};
+
 
 export default Modal;

@@ -37,14 +37,12 @@ const pizzaList = () => (
 );
 
 
-class Menu extends React.Component {
-  render() {
-    return (
-      <main className="menu-box">
-        {pizzaList()}
-      </main>
-    );
-  }
+function Menu() {
+  return (
+    <main className="menu-box">
+      {pizzaList()}
+    </main>
+  );
 }
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactSVG from 'react-svg';
-import Modal from './Modal';
+import Modal from './Modal.jsx';
 
 class Header extends React.Component {
   constructor(props) {
