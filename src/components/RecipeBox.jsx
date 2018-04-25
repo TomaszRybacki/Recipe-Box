@@ -8,29 +8,46 @@ import Footer from './Footer.jsx';
 class RecipeBox extends React.Component {
   constructor(props) {
     super(props);
-    this.handleEditPizza = this.handleEditPizza.bind(this);
-    this.handleDeletePizza = this.handleDeletePizza.bind(this);
 
     this.state = {
-      Hawaiian: ['red sauce', 'cheese', 'ham', 'pineapple'],
-      Cowboy: ['red sauce', 'cheese', 'mushrooms', 'sausage', 'olives'],
-      Corleone: ['red sauce', 'canadian bacon', 'salami', 'pepperoni', 'italian sausage', 'ground beef']
+      recipes: [
+        {
+          name: 'Hawaiian',
+          ingredients: ['red sauce', 'cheese', 'ham', 'pineapple']
+        },
+        {
+          name: 'Cowboy',
+          ingredients: ['red sauce', 'cheese', 'mushrooms', 'sausage', 'olives']
+        },
+        {
+          name: 'Corleone',
+          ingredients: ['red sauce', 'canadian bacon', 'salami', 'pepperoni', 'italian sausage', 'ground beef']
+        }
+      ]
     };
   }
 
-  handleEditPizza(e) {
-    e.preventDefault();
-    const name = e.target.id.slice(4);
+  handleEditPizza = (index) => {
+    const recipes = this.state.recipes.slice();
+    const editedPizza = recipes.filter((item, itemIndex) => index === itemIndex);
+    console.log(editedPizza);
+    const { name } = editedPizza[0];
+    console.log(name);
+
     this.setState({
-      [name]: ['new value']
+      recipes: [
+        {
+          name,
+          ingredients: ['nev value']
+        }
+      ]
     });
   }
 
-  handleDeletePizza(e) {
-    e.preventDefault();
-    const name = e.target.id;
-    delete this.state[name];
-    this.setState(this.state);
+  handleDeletePizza = (index) => {
+    const recipes = this.state.recipes.slice();
+    recipes.splice(index, 1);
+    this.setState({ recipes });
   }
 
 
@@ -38,7 +55,7 @@ class RecipeBox extends React.Component {
     return (
       <Fragment>
         <Header menu={this.state} />
-        <Menu menu={this.state} editPizza={this.handleEditPizza} deletePizza={this.handleDeletePizza} />
+        <Menu menu={this.state.recipes} editPizza={this.handleEditPizza} deletePizza={this.handleDeletePizza} />
         <Footer />
       </Fragment>
     );

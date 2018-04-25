@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Modal extends React.Component {
+  static propTypes = {
+    children: PropTypes.arrayOf(PropTypes.element).isRequired,
+    onCloseRequest: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -50,11 +55,5 @@ class Modal extends React.Component {
     );
   }
 }
-
-Modal.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  onCloseRequest: PropTypes.func.isRequired
-};
-
 
 export default Modal;
