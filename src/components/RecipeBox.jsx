@@ -30,9 +30,7 @@ class RecipeBox extends React.Component {
   handleEditPizza = (index) => {
     const recipes = this.state.recipes.slice();
     const editedPizza = recipes.filter((item, itemIndex) => index === itemIndex);
-    console.log(editedPizza);
     const { name } = editedPizza[0];
-    console.log(name);
 
     this.setState({
       recipes: [
@@ -50,11 +48,20 @@ class RecipeBox extends React.Component {
     this.setState({ recipes });
   }
 
+  handleAddPizza = (newPizza) => {
+    const recipes = this.state.recipes.slice();
+    recipes.push({
+      name: newPizza.name,
+      ingredients: newPizza.ingredients
+    });
+    this.setState({ recipes });
+  }
+
 
   render() {
     return (
       <Fragment>
-        <Header menu={this.state} />
+        <Header menu={this.state} addPizza={this.handleAddPizza} />
         <Menu menu={this.state.recipes} editPizza={this.handleEditPizza} deletePizza={this.handleDeletePizza} />
         <Footer />
       </Fragment>

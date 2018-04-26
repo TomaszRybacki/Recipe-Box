@@ -36,6 +36,12 @@
     fill: $yellow;
 }
 
+.header__button--color {
+  background-color: $yellow !important;
+  border: solid 2px $yellow !important;
+  margin: 10px 0 !important;
+}
+
 .header__button {
   background-color: $orange;
   border: solid 2px $orange;
