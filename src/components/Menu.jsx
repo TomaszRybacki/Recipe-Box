@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactSVG from 'react-svg';
 import PropTypes from 'prop-types';
+
+import IconPizzaPiece from './../iconComponents/IconPizzaPiece.jsx';
 
 
 class Menu extends React.Component {
@@ -18,7 +19,7 @@ class Menu extends React.Component {
             <div className="accordion__header">
 
               <span className="accordion__header-layout justify-start">
-                <ReactSVG path="../img/pizza-piece.svg" className="menu-icon" />
+                <IconPizzaPiece className="menu-icon" />
                 <h3 className="accordion__title" key={`h3 ${pizza.name}`}>{pizza.name}</h3>
               </span>
 
