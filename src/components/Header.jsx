@@ -38,7 +38,7 @@ class Header extends React.Component {
 
   handleNewPizzaIngredients(event) {
     let ingredients = event.target.value;
-    ingredients = ingredients.split(', ');
+    ingredients = ingredients.split(',');
     this.setState({
       newPizza: {
         name: this.state.newPizza.name,
@@ -71,7 +71,7 @@ class Header extends React.Component {
           <input
             className="modal-input"
             type="text"
-            placeholder="enter all ingredients separated by a comma, followed by a space"
+            placeholder="enter all ingredients separated by a comma"
             onChange={event => this.handleNewPizzaIngredients(event)}
           />
           <button
