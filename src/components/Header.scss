@@ -2,7 +2,7 @@
   background-color: $black;
   max-width:  800px;
   margin: 0 auto;
-  height: 150px;
+  height: auto;
   padding: 20px;
 
   display: flex;
@@ -16,7 +16,12 @@
   color: $yellow;
   text-align: center;
   font-weight: 800;
-  padding: 0 20px;
+  padding: 10px 20px;
+
+  @include mobile {
+    font-size: $large;
+    padding: 10px;
+  }
 }
 
 .header__text {
@@ -25,6 +30,11 @@
   text-align: center;
   font-weight: 600;
   flex: 1 1 100%;
+  padding: 10px 0;
+
+  @include mobile {
+    font-size: $small;
+  }
 }
 
 .header__button--color {
@@ -46,6 +56,9 @@
   margin: 10px;
   text-transform: uppercase;
   position: relative;
+
+  @include mobile {
+  }
 
   &:before {
     content: '';

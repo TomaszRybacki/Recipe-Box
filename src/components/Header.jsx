@@ -54,7 +54,6 @@ class Header extends React.Component {
       <header className="header">
         <IconPizza className="logo-icon" />
         <h1 className="header__title">Pizza Menu</h1>
-        <IconPizza className="logo-icon" />
         <p className="header__text">You can add, edit and delete recipes of your&apos;s favorite pizzas.<br /> All new recipes are saved in your browser&apos;s local storage.</p>
         <button className="header__button" onClick={this.handleVisibility}>Add Pizza</button>
 

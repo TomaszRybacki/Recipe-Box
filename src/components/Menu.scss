@@ -15,26 +15,47 @@
   border: solid 2px $yellow;
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
+
+  @include mobile {
+    height: auto;
+  }
 }
 
 .accordion__header-layout {
-  flex: 1 1 50%;
   display: flex;
   align-items: center;
 }
 
 .justify-start {
   justify-content: flex-start;
+  flex: 1 1 50%;
+
+  @include mobile {
+    justify-content: center;
+    flex: 1 1 100%;
+  }
 }
 
 .justify-end {
   justify-content: flex-end;
+  flex: 1 1 50%;
+
+  @include mobile {
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
 }
 
 .accordion__title {
   font: $large $basic;
   font-weight: 800;
   color: $black;
+
+  @include mobile {
+    margin-bottom: 10px;
+  }
 }
 
 .accordion__button {
@@ -48,6 +69,10 @@
   height: 40px;
   cursor: pointer;
   position: relative;
+
+  @include mobile {
+    flex: 1 1 100%;
+  }
 
   &:before {
     content: '';

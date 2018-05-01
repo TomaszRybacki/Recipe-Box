@@ -2,6 +2,10 @@
   width: 30px;
   height: 30px;
   padding: 0 20px 0 0;
+
+  @include mobile {
+    padding: 0 10px 0 0;
+  }
 }
 
 .menu-icon g path {
