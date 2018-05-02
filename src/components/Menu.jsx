@@ -11,12 +11,33 @@ class Menu extends React.Component {
     deletePizza: PropTypes.func.isRequired
   }
 
+  handleSlideAnimationClick = (event) => {
+    const accordionBodyElem = event.target.parentElement.nextSibling;
+
+    if (accordionBodyElem !== null && accordionBodyElem.classList.contains('accordion__body')) {
+      accordionBodyElem.classList.toggle('animate-slide');
+    }
+  }
+
+  handleSlideAnimationKey = (event) => {
+    if (event.keyCode === 13) {
+      const accordionBodyElem = event.target.nextSibling;
+      accordionBodyElem.classList.toggle('animate-slide');
+    }
+  }
+
   pizzaList(pizzaMenu) {
     return (
       <React.Fragment>
         {pizzaMenu.map((pizza, index) => (
           <div className="accordion__item" key={`div ${pizza.name}`}>
-            <div className="accordion__header">
+            <div
+              className="accordion__header"
+              onKeyDown={this.handleSlideAnimationKey}
+              onClick={this.handleSlideAnimationClick}
+              role="button"
+              tabIndex="0"
+            >
 
               <span className="accordion__header-layout justify-start">
                 <IconPizzaPiece className="menu-icon" />

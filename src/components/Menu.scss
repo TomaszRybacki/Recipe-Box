@@ -1,6 +1,7 @@
 .menu-box {
   background-color: $black;
   max-width:  800px;
+  min-height: 180px;
   margin: 50px auto 0 auto;
 }
 
@@ -19,6 +20,17 @@
 
   @include mobile {
     height: auto;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: lighten( $yellow, 5% );
+    border-color: lighten( $yellow, 5% );
+  }
+
+  &:hover {
+    background-color: lighten( $yellow, 5% );
+    border-color: lighten( $yellow, 5% );
   }
 }
 
@@ -52,6 +64,7 @@
   font: $large $basic;
   font-weight: 800;
   color: $black;
+  cursor: text;
 
   @include mobile {
     margin-bottom: 10px;
@@ -97,10 +110,24 @@
   font: $medium $basic;
   font-weight: 600;
   color: $olive;
-  padding: 10px;
+  padding: 2px;
   border: solid 2px $yellow;
+  animation: slide-up 0.3s ease forwards;
+  overflow: hidden;
 }
 
-.accordion__ingredient {
+.animate-slide {
+  animation: slide-down 0.3s ease forwards;
+}
 
+@keyframes slide-down {
+  0% {max-height: 0; padding: 2px;}
+  1% {padding: 10px;}
+  100% {max-height: 300px; padding: 10px;}
+}
+
+@keyframes slide-up {
+  0% {max-height: 300px; padding: 10px;}
+  80% {padding: 10px;}
+  100% {max-height: 0; padding: 2px;}
 }
