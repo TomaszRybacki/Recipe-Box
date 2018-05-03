@@ -13,7 +13,7 @@ class RecipeBox extends React.Component {
     this.state = {
       showModal: false,
       editedPizzaIndex: null,
-      recipes: [
+      defaultRecipes: [
         {
           name: 'Hawaiian',
           ingredients: ['red sauce', ' cheese', ' ham', ' pineapple']
@@ -26,10 +26,15 @@ class RecipeBox extends React.Component {
           name: 'Corleone',
           ingredients: ['red sauce', ' canadian bacon', ' salami', ' pepperoni', ' italian sausage', ' ground beef']
         }
-      ]
+      ],
+      recipes: []
     };
 
     this.handleVisibility = this.handleVisibility.bind(this);
+  }
+
+  componentDidMount() {
+    this.checkLocalStorageValue();
   }
 
   getIndexOfEditedPizza = (index) => {
@@ -45,10 +50,6 @@ class RecipeBox extends React.Component {
   handleEditPizzaName = (event) => {
     const recipes = [...this.state.recipes];
     recipes[this.state.editedPizzaIndex].name = event.target.value;
-
-    this.setState({
-      recipes
-    });
   }
 
   handleEditPizzaIngredients = (event) => {
@@ -62,6 +63,8 @@ class RecipeBox extends React.Component {
     this.setState({
       recipes
     });
+
+    this.saveLocalStorage();
   }
 
   handleAddPizza = (newPizza) => {
@@ -75,13 +78,28 @@ class RecipeBox extends React.Component {
     });
   }
 
+  checkLocalStorageValue = () => {
+    if (localStorage.length === 0 || localStorage.recipes.length === 2) {
+      this.setState({
+        recipes: this.state.defaultRecipes
+      });
+    } else {
+      this.setState({
+        recipes: JSON.parse(localStorage.getItem('recipes'))
+      });
+    }
+  }
+
+  saveLocalStorage = () => {
+    setTimeout(() => localStorage.setItem('recipes', JSON.stringify(this.state.recipes)), 500);
+  }
 
   render() {
     const { showModal } = this.state;
 
     return (
       <Fragment>
-        <Header menu={this.state} addPizza={this.handleAddPizza} />
+        <Header menu={this.state} addPizza={this.handleAddPizza} save={this.saveLocalStorage} />
         <Menu
           menu={this.state.recipes}
           editPizza={(event) => { this.getIndexOfEditedPizza(event); this.handleVisibility(); }}
@@ -109,7 +127,7 @@ class RecipeBox extends React.Component {
           />
           <button
             className="header__button header__button--color"
-            onClick={() => { this.handleVisibility(); }}
+            onClick={() => { this.handleVisibility(); this.saveLocalStorage(); }}
           >Save
           </button>
         </Modal>}

@@ -6,7 +6,8 @@ import IconPizza from './../iconComponents/IconPizza.jsx';
 
 class Header extends React.Component {
   static propTypes = {
-    addPizza: PropTypes.func.isRequired
+    addPizza: PropTypes.func.isRequired,
+    save: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -75,7 +76,7 @@ class Header extends React.Component {
           />
           <button
             className="header__button header__button--color"
-            onClick={() => { this.props.addPizza(this.state.newPizza); this.handleVisibility(); }}
+            onClick={() => { this.props.addPizza(this.state.newPizza); this.handleVisibility(); this.props.save(); }}
           >Add Pizza
           </button>
         </Modal>}
